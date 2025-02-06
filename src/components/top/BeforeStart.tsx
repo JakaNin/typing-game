@@ -1,4 +1,5 @@
 import Button from "components/commons/Button";
+import Link from "next/link";
 
 const BeforeStart = () => {
   return (
@@ -11,9 +12,11 @@ const BeforeStart = () => {
           </div>
         </div>
         <div className="flex flex-col items-center pt-10">
-          <Button className="px-20 py-5 text-3xl" variant="primary">
-            ゲーム開始
-          </Button>
+          <Link href="/game">
+            <Button className="px-20 py-5 text-3xl" variant="primary">
+              ゲーム開始
+            </Button>
+          </Link>
           <p className="text-ap-gray-500 text-sm mt-2">
             ※スペースかEnterキーを押すと開始します
           </p>
