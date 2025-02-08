@@ -1,5 +1,5 @@
-import Button from "components/commons/Button";
-import Link from "next/link";
+import Typography from "components/commons/Typography";
+import GameStartButton from "./GameStartButton";
 
 const BeforeStart = () => {
   return (
@@ -11,15 +11,11 @@ const BeforeStart = () => {
             <div className="w-full"></div>
           </div>
         </div>
-        <div className="flex flex-col items-center pt-10">
-          <Link href="/game">
-            <Button className="px-20 py-5 text-3xl" variant="primary">
-              ゲーム開始
-            </Button>
-          </Link>
-          <p className="text-ap-gray-500 text-sm mt-2">
+        <div className="flex flex-col gap-2 items-center pt-10">
+          <GameStartButton />
+          <Typography variant="caption">
             ※スペースかEnterキーを押すと開始します
-          </p>
+          </Typography>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import GameContent from "./_components/GameContent";
 import TypingField from "./_components/TypingField";
 
-const Game = () => {
+const Game = async () => {
   return (
     <GameContent>
       <TypingField />

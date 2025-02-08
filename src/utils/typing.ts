@@ -1,4 +1,8 @@
-export const checkSmallHira = (yomi: string, i: number, margin: number) => {
+export const checkSmallHira = (
+  yomi: string,
+  i: number,
+  margin: number | undefined = 1,
+) => {
   const index: number = i + margin;
   const checkYomi: string | undefined = yomi[index];
   return (

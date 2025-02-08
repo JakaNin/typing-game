@@ -1,127 +1,126 @@
-import { toRoman } from "utils/typing";
-import { useEffect, useState, useRef, useMemo } from "react";
-import { CHAR_TABLE } from "lib/constants/typingData";
+import { useState } from "react";
 import type { Song } from "lib/constants/songs";
+import { CHAR_TABLE } from "lib/constants/typingData";
+import { toRoman } from "utils/typing";
+import { useKeyPressHandler } from "./useKeyPressHandler";
+import { useQuizManager } from "./useQuizManager";
+import { useCharacterManager } from "./useCharcterManager";
+import { useProgress } from "./useProgress";
+import { useScore } from "./useScore";
+import { useTimer } from "./useTimer";
 
-export const useTyping = (songs: Song[], gameStarted) => {
-  const [userInput, setUserInput] = useState("");
-  const [correctChars, setCorrectChars] = useState(0);
-  const [countIndex, setCountIndex] = useState(0);
-  const [typeCount, setTypeCount] = useState(0);
-  const [correctTypeCount, setCorrectTypeCount] = useState(0);
-  const [typeRomanCount, setTypeRomanCount] = useState(0);
+export const useTyping = (songs: Song[]) => {
+  const { timer, setTimer, totalTime, setTotalTime } = useTimer();
+  const { song, countIndex, setCountIndex } = useQuizManager(songs);
+  const {
+    correctKanaCount,
+    setCorrectKanaCount,
+    formattedKanaPart,
+    typedKana,
+    remainingKana,
+    typedRoman,
+    setTypedRoman,
+    remainingRoman,
+    setRemainingRoman,
+    currentRoman,
+    currentKana,
+  } = useCharacterManager(song);
+
+  const { progress, setProgress, correctTypeCount, setCorrectTypeCount } =
+    useProgress(setTimer, setTotalTime);
+
+  const [input, setInput] = useState("");
   const [typoCount, setTypoCount] = useState(0);
-  const [romanInput, setRomanInput] = useState("");
-  const [roman, setRoman] = useState("");
-  const [correctRoman, setCorrectRoman] = useState(1);
-  const [success, setSuccess] = useState(false);
+  // 対応するローマ字シーケンスを取得
+  const validSequences = CHAR_TABLE[currentKana] || [];
 
-  const audioManagerRef = useRef({
-    playSound: (type: string) => console.log(`Playing ${type} sound`),
-  });
+  const initQuiz = () => {
+    // ローマ字を初期化
+    setTypedRoman("");
+    // 正解文字数を初期化
+    setCorrectKanaCount(0);
+  };
 
-  const song = songs[countIndex];
-  const phrasePhysical = useMemo(() => song.physical.replace(/ /g, ""), [song]);
-  const currentChar = phrasePhysical[correctChars];
-  const currentRoman = roman[0];
+  const initInput = () => {
+    setInput("");
+  };
 
-  const handleKeyPress = (event: KeyboardEvent) => {
-    if (!gameStarted) return;
+  const onCorrectType = (
+    latestInput: string,
+    currentInputCombination: string,
+  ) => {
+    setCorrectTypeCount((c) => c + 1);
+    // ユーザーのローマ字入力を更新
+    setTypedRoman((c) => `${c}${latestInput}`);
+    setInput(currentInputCombination);
+    validSequences.map((seq) => {
+      const latestInput = currentInputCombination.slice(-1);
+      // TI => CHI などより長い入力の場合、diffを計算
+      const longerInputCase = latestInput !== currentRoman;
+      const lengthDiff = longerInputCase
+        ? seq.length - validSequences[0].length
+        : 0;
 
-    // ローマ字の対応シーケンスを取得
-    const validSequences = CHAR_TABLE[currentChar] || [];
-    const nextInput = userInput + event.key.toUpperCase();
-
-    if (validSequences.some((seq) => seq.startsWith(nextInput))) {
-      audioManagerRef.current.playSound("success");
-
-      setTypeCount((type) => type + 1);
-      setUserInput(nextInput);
-
-      let nextRoman = true;
-      validSequences.forEach((element) => {
-        const latestInput = nextInput.slice(-1);
-        let lenDiff = 0;
+      if (seq[input.length] == latestInput) {
+        setRemainingRoman(remainingRoman.substring(1 - lengthDiff));
         if (
-          element.length &&
-          validSequences[0].length &&
-          latestInput !== currentRoman
+          currentKana == "ち" &&
+          latestInput == "C" &&
+          currentInputCombination.length == 1
         ) {
-          lenDiff = element.length - validSequences[0].length;
-        }
-        if (nextRoman && element[typeRomanCount] === latestInput) {
-          nextRoman = false;
-          setTypeRomanCount((chars) => chars + 1);
-          setCorrectTypeCount((chars) => chars + 1);
-          setRoman(roman.substring(1 - lenDiff));
-          if (
-            currentChar === "ち" &&
-            latestInput === "C" &&
-            nextInput.length === 1
-          ) {
-            setRoman(`${element[typeRomanCount + 1]}${roman.substring(1)}`);
-          }
-        }
-      });
-
-      setRomanInput((input) => input + event.key.toUpperCase());
-      setCorrectRoman((chars) => chars + 1);
-
-      if (validSequences.includes(nextInput)) {
-        setUserInput("");
-        setCorrectChars((chars) => chars + currentChar.length);
-        setTypeRomanCount(0);
-
-        if (correctChars + currentChar.length === phrasePhysical.length) {
-          setCountIndex((index) => index + 1);
-          if (songs[countIndex + 1]) {
-            setRoman(toRoman(songs[countIndex + 1].physical, CHAR_TABLE));
-          } else {
-            setSuccess(true);
-          }
+          setRemainingRoman(
+            `${seq[input.length + 1]}${remainingRoman.substring(1)}`,
+          );
         }
       }
-    } else {
-      setTypoCount((type) => type + 1);
-      setCorrectTypeCount(0);
-      audioManagerRef.current.playSound("error");
+    });
+
+    // 完全なマッチの場合、次の文字へ
+
+    if (validSequences.includes(currentInputCombination)) {
+      initInput();
+      setCorrectKanaCount((c) => c + currentKana.length);
+
+      const typedKanaCount = correctKanaCount + currentKana.length;
+      const songFinished = formattedKanaPart.length === typedKanaCount;
+      if (songFinished) {
+        initQuiz();
+        setCountIndex((c) => c + 1);
+        setRemainingRoman(toRoman(songs[countIndex + 1].physical, CHAR_TABLE));
+      }
     }
   };
 
-  useEffect(() => {
-    if (!success) {
-      window.addEventListener("keydown", handleKeyPress);
-    }
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [success, handleKeyPress]);
+  const onTypo = () => {
+    // タイポの場合
+    setTypoCount((c) => c + 1);
+    setProgress(0);
+  };
 
-  let displayIndex = 0;
-  let charCount = 0;
-  while (charCount < correctChars && displayIndex < song.physical.length) {
-    if (song.physical[displayIndex] !== " ") {
-      charCount++;
-    }
-    displayIndex++;
-  }
-  const typedPart = song.physical.substring(0, displayIndex);
-  const remainingPart = song.physical.substring(displayIndex);
-  const nextChar = roman[0];
-  const romanQ = roman.substring(1);
+  useKeyPressHandler(input, validSequences, timer, onCorrectType, onTypo);
+
+  const { score, keyPressPerSecond, accuracy, totalTypeCount } = useScore(
+    correctTypeCount,
+    typoCount,
+    totalTime,
+  );
 
   return {
-    countIndex,
-    typeCount,
-    typoCount,
-    correctTypeCount,
-    roman,
-    romanInput,
-    correctRoman,
-    typedPart,
-    remainingPart,
-    nextChar,
-    romanQ,
     song,
+    progress,
+    timer,
+    typingChars: {
+      typedRoman,
+      remainingRoman,
+      typedKana,
+      remainingKana,
+    },
+    result: {
+      score,
+      keyPressPerSecond,
+      accuracy,
+      totalTypeCount,
+      typoCount,
+    },
   };
 };

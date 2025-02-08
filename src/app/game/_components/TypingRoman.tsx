@@ -1,31 +1,45 @@
 import Typography from "components/commons/Typography";
 import { twMerge } from "tailwind-merge";
 
-const TypingRoman = ({}) => {
+type Props = {
+  typingChars: {
+    typedRoman: string;
+    remainingRoman: string;
+    typedKana: string;
+    remainingKana: string;
+  };
+};
+
+const TypingRoman = ({ typingChars }: Props) => {
   const divClass = " whitespace-pre-wrap break-all";
   const commonClass = "tracking-wide text-xl";
   const inputtedClass = "text-ap-gray-700";
   const nextCharClass = "text-ap-orange-700";
   const remainingClass = "text-white";
+
+  const typedRoman = typingChars.typedRoman;
+  const nextRoman = typingChars.remainingRoman[0];
+  const remainingRoman = typingChars.remainingRoman.slice(1);
+
   return (
     <div className={divClass}>
       <Typography
         element="span"
         className={twMerge(commonClass, inputtedClass)}
       >
-        {"romanInput"}
+        {typedRoman}
       </Typography>
       <Typography
         element="span"
         className={twMerge(commonClass, nextCharClass)}
       >
-        {"nextChar"}
+        {nextRoman}
       </Typography>
       <Typography
         element="span"
         className={twMerge(commonClass, remainingClass)}
       >
-        {"romanQ"}
+        {remainingRoman}
       </Typography>
     </div>
   );
