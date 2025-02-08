@@ -8,20 +8,23 @@ import TypingSong from "./TypingSong";
 import type { Song } from "lib/constants/songs";
 import { useTyping } from "../_lib/hooks/useTyping";
 import Result from "./Result";
+import Crane from "./Crane";
 
 type Props = {
   songs: Song[];
 };
 
 const TypingFieldPresentation = ({ songs }: Props) => {
-  const { song, timer, progress, typingChars, result } = useTyping(songs);
+  const { song, timer, progress, typingChars, result, animation } =
+    useTyping(songs);
   const timeup = timer === 0;
   return (
     <>
       {timeup ? (
         <Result result={result} />
       ) : (
-        <div className="w-full flex flex-col items-center">
+        <div className="w-full flex flex-col items-center relative">
+          <Crane animation={animation} />
           <div className="flex flex-row justify-between w-[80%] pb-5">
             <LastSecond lastSecond={timer} />
             <CurrentScore currentScore={result.score} />
@@ -29,7 +32,11 @@ const TypingFieldPresentation = ({ songs }: Props) => {
 
           <ProgressBar progress={progress} />
 
-          <TypingSong song={song} typingChars={typingChars} />
+          <TypingSong
+            song={song}
+            typingChars={typingChars}
+            flower={animation.flowerProps}
+          />
 
           <SongInfo song={song} />
         </div>

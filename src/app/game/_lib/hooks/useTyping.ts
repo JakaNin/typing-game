@@ -8,9 +8,12 @@ import { useCharacterManager } from "./useCharcterManager";
 import { useProgress } from "./useProgress";
 import { useScore } from "./useScore";
 import { useTimer } from "./useTimer";
+import { useAudio } from "./useAudio";
+import { useAnimation } from "./useAnimation";
 
 export const useTyping = (songs: Song[]) => {
-  const { timer, setTimer, totalTime, setTotalTime } = useTimer();
+  const audio = useAudio();
+  const { timer, setTimer, totalTime, setTotalTime } = useTimer(audio);
   const { song, countIndex, setCountIndex } = useQuizManager(songs);
   const {
     correctKanaCount,
@@ -26,8 +29,13 @@ export const useTyping = (songs: Song[]) => {
     currentKana,
   } = useCharacterManager(song);
 
-  const { progress, setProgress, correctTypeCount, setCorrectTypeCount } =
-    useProgress(setTimer, setTotalTime);
+  const {
+    progress,
+    setProgress,
+    correctTypeCount,
+    setCorrectTypeCount,
+    justAdded1Sec,
+  } = useProgress(setTimer, setTotalTime, audio);
 
   const [input, setInput] = useState("");
   const [typoCount, setTypoCount] = useState(0);
@@ -49,6 +57,7 @@ export const useTyping = (songs: Song[]) => {
     latestInput: string,
     currentInputCombination: string,
   ) => {
+    audio.playSuccessSound();
     setCorrectTypeCount((c) => c + 1);
     // ユーザーのローマ字入力を更新
     setTypedRoman((c) => `${c}${latestInput}`);
@@ -75,7 +84,6 @@ export const useTyping = (songs: Song[]) => {
     });
 
     // 完全なマッチの場合、次の文字へ
-
     if (validSequences.includes(currentInputCombination)) {
       initInput();
       setCorrectKanaCount((c) => c + currentKana.length);
@@ -92,6 +100,7 @@ export const useTyping = (songs: Song[]) => {
 
   const onTypo = () => {
     // タイポの場合
+    audio.playErrorSound();
     setTypoCount((c) => c + 1);
     setProgress(0);
   };
@@ -103,6 +112,7 @@ export const useTyping = (songs: Song[]) => {
     typoCount,
     totalTime,
   );
+  const animation = useAnimation(correctTypeCount, justAdded1Sec, audio);
 
   return {
     song,
@@ -121,5 +131,6 @@ export const useTyping = (songs: Song[]) => {
       totalTypeCount,
       typoCount,
     },
+    animation,
   };
 };
