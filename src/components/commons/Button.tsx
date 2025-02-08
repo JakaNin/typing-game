@@ -15,7 +15,7 @@ const styles = {
       transition duration-300 hover:bg-ap-orange-600
     `,
     text: `
-        hover:bg-[#020D1E0D]`,
+        hover:bg-ap-transparentBlack-200`,
   },
 };
 

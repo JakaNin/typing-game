@@ -52,7 +52,7 @@ const config: Config = {
             700: "#626262", // text
             800: "#434343", // text
             900: "#222", // text
-            1000: "#000" // text
+            1000: "#000", // text
           },
           blueGray: {
             DEFAULT: "#aab6c4",
@@ -65,7 +65,7 @@ const config: Config = {
             700: "#6a707f", // text
             800: "#4e515c", // text
             900: "#353940", // text
-            1000: "#121315" // text
+            1000: "#121315", // text
           },
           blue: {
             DEFAULT: "#95d4e5",
@@ -78,7 +78,7 @@ const config: Config = {
             700: "#47afd0", // text
             800: "#2183cb", // text
             900: "#2a66a8", // text
-            1000: "#1a4fa1" // text
+            1000: "#1a4fa1", // text
           },
           red: {
             DEFAULT: "#f89c93",
@@ -91,7 +91,7 @@ const config: Config = {
             700: "#ea4e42", // text
             800: "#e23030", // text
             900: "#cc3333", // text
-            1000: "#b72929" // text
+            1000: "#b72929", // text
           },
           green: {
             DEFAULT: "#71b599",
@@ -104,7 +104,7 @@ const config: Config = {
             700: "#3e8977", // text
             800: "#217f67", // text
             900: "#156b53", // text
-            1000: "#0e5942" // text
+            1000: "#0e5942", // text
           },
           yellow: {
             DEFAULT: "#f4df89",
@@ -117,7 +117,7 @@ const config: Config = {
             700: "#e2c139", // text
             800: "#d2aa00", // text
             900: "#ad7c10", // text
-            1000: "#915e0d" // text
+            1000: "#915e0d", // text
           },
           orange: {
             DEFAULT: "#f4df89",
@@ -130,7 +130,7 @@ const config: Config = {
             700: "#e46f00", // text
             800: "#cb5d00", // text
             900: "#b14c00", // text
-            1000: "#953d00" // text
+            1000: "#953d00", // text
           },
           transparentBlack: {
             100: "#0000001A",
@@ -142,7 +142,7 @@ const config: Config = {
             700: "#000000B2",
             800: "#000000CC",
             900: "#000000E5",
-            1000: "#000000F2"
+            1000: "#000000F2",
           },
           transparentWhite: {
             100: "#ffffff1A",
@@ -154,7 +154,7 @@ const config: Config = {
             700: "#ffffffB2",
             800: "#ffffffCC",
             900: "#ffffffE5",
-            1000: "#ffffffF2"
+            1000: "#ffffffF2",
           },
         },
       },

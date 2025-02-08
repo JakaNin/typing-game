@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/legacy/image";
 import "./globals.css";
 import Footer from "components/layout/Footer";
+import Header from "components/layout/Header";
 
 export const metadata: Metadata = {
   title: "万葉タイピング",
@@ -24,7 +25,8 @@ export default function RootLayout({
             alt="Background Image"
           />
         </div>
-        <div className="flex flex-col mx-auto w-full h-full">
+        <div className="flex flex-col mx-auto w-full h-full min-h-screen justify-between">
+          <Header />
           <main id="content" role="main">
             <div>{children}</div>
           </main>
