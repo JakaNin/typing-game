@@ -6,7 +6,7 @@ type IconProps = {
 };
 
 const ReloadIcon: React.FC<IconProps> = ({
-  fill = "#070502",
+  fill = "ap-black",
   className = "",
 }) => {
   const fillColor = getTailwindColor(fill);
