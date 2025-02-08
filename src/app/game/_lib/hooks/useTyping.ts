@@ -54,7 +54,6 @@ export const useTyping = (songs: Song[]) => {
     setTypedRoman((c) => `${c}${latestInput}`);
     setInput(currentInputCombination);
     validSequences.map((seq) => {
-      const latestInput = currentInputCombination.slice(-1);
       // TI => CHI などより長い入力の場合、diffを計算
       const longerInputCase = latestInput !== currentRoman;
       const lengthDiff = longerInputCase
