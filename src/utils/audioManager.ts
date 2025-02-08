@@ -7,13 +7,25 @@ export class AudioManager {
     this.sounds = {};
   }
 
-  loadSound(name: string, url: string) {
-    fetch(url)
-      .then((response) => response.arrayBuffer())
+  loadSound(name: string, url: string): Promise<void> {
+    return fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to load ${url}: ${response.statusText}`);
+        }
+        return response.arrayBuffer();
+      })
       .then((arrayBuffer) => this.audioContext.decodeAudioData(arrayBuffer))
       .then((audioBuffer) => {
         this.sounds[name] = audioBuffer;
       });
+  }
+
+  loadAllSounds(soundMap: { [key: string]: string }): Promise<void[]> {
+    const promises = Object.entries(soundMap).map(([name, url]) =>
+      this.loadSound(name, url),
+    );
+    return Promise.all(promises);
   }
 
   playSound(name: string) {

@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import type { AudioType } from "./useAudio";
 
 const START_TIME = 60;
-export const useTimer = () => {
+export const useTimer = (audio: AudioType) => {
   const [timer, setTimer] = useState(START_TIME);
   const [totalTime, setTotalTime] = useState(timer);
+  const audioRef = useRef(audio);
 
   useEffect(() => {
     // タイマーを開始
@@ -11,6 +13,7 @@ export const useTimer = () => {
       setTimer((prevTimer) => {
         if (prevTimer <= 1) {
           clearInterval(interval); // インターバルをクリア
+          audioRef.current.playFinishedSound();
           return 0;
         }
         return prevTimer - 1;
