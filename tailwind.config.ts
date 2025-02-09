@@ -120,7 +120,7 @@ const config: Config = {
             1000: "#915e0d", // text
           },
           orange: {
-            DEFAULT: "#f4df89",
+            DEFAULT: "#ffa037",
             100: "#ffeccc",
             200: "#ffdfad",
             300: "#fdd291",
