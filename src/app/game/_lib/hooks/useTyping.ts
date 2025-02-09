@@ -1,15 +1,16 @@
-import { useState } from "react";
 import type { Song } from "lib/constants/songs";
 import { CHAR_TABLE } from "lib/constants/typingData";
+import { useState } from "react";
 import { toRoman } from "utils/typing";
-import { useKeyPressHandler } from "./useKeyPressHandler";
-import { useQuizManager } from "./useQuizManager";
+
+import { useAnimation } from "./useAnimation";
+import { useAudio } from "./useAudio";
 import { useCharacterManager } from "./useCharcterManager";
+import { useKeyPressHandler } from "./useKeyPressHandler";
 import { useProgress } from "./useProgress";
+import { useQuizManager } from "./useQuizManager";
 import { useScore } from "./useScore";
 import { useTimer } from "./useTimer";
-import { useAudio } from "./useAudio";
-import { useAnimation } from "./useAnimation";
 
 export const useTyping = (songs: Song[]) => {
   const audio = useAudio();

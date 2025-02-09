@@ -1,6 +1,7 @@
 import { SpringValue, useSpring } from "@react-spring/web";
+import { useEffect, useRef, useState } from "react";
+
 import { type AudioType } from "./useAudio";
-import { useState, useEffect, useRef } from "react";
 
 export type SpringProps = {
   bottom: SpringValue<string>;

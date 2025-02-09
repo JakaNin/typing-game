@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const INITIAL_COUNTDOWN = 3;
 export const useCountdown = () => {

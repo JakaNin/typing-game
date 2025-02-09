@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
 import { supabase } from "lib/supabase";
+import { NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+export const POST = async (req: Request) => {
   const body = await req.json();
 
   const {
@@ -35,4 +35,4 @@ export async function POST(req: Request) {
     { message: "スコア登録成功", data },
     { status: 201 },
   );
-}
+};

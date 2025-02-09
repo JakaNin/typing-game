@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
 import Button from "components/commons/Button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const GameStartButton = () => {
   const router = useRouter();

@@ -1,5 +1,5 @@
+import { useEffect, useRef } from "react";
 import { AudioManager } from "utils/audioManager";
-import { useRef, useEffect } from "react";
 
 export type AudioType = {
   playStartSound: () => void;

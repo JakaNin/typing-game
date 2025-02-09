@@ -1,8 +1,9 @@
 "use client";
 
-import Snackbar from "./Snackbar";
 import { useEffect } from "react";
 import useMessageStore, { MessageType } from "stores/useMessageStore";
+
+import Snackbar from "./Snackbar";
 
 type Props = {
   adds?: string;

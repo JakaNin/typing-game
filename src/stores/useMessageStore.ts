@@ -1,8 +1,9 @@
 import React from "react";
-import { createSelectors } from "./";
 import { handleError } from "utils/errorHandler";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
+
+import { createSelectors } from "./";
 
 export type MessageType = "success" | "error" | "warning" | "info";
 type MessageStore = {

@@ -1,3 +1,48 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react-refresh", "simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "react/prop-types": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react-refresh/only-export-components": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.tsx"],
+      "rules": {
+        "react-hooks/rules-of-hooks": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
