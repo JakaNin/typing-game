@@ -8,7 +8,7 @@ export const metadata = {
     url: "https://manyo-typing.com/privacy-policy",
     images: [
       {
-        url: "https://manyo-typing.com/ogp-privacy-policy.png",
+        url: "https://manyo-typing.com/ogp-image.png",
         width: 800,
         height: 600,
         alt: "プライバシーポリシー",
@@ -19,7 +19,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "プライバシーポリシー - 万葉タイピング",
     description: "ユーザー情報の取り扱い方針についてご確認いただけます。",
-    images: ["https://manyo-typing.com/ogp-privacy-policy.png"],
+    images: ["https://manyo-typing.com/ogp-image.png"],
   },
 };
 

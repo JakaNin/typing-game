@@ -10,7 +10,7 @@ export const metadata = {
     url: "https://manyo-typing.com/ranking",
     images: [
       {
-        url: "https://manyo-typing.com/ogp-ranking.png",
+        url: "https://manyo-typing.com/ogp-image.png",
         width: 800,
         height: 600,
         alt: "和歌山タイピングランキング",
@@ -21,7 +21,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "和歌山のタイピングランキング",
     description: "タイピングゲームのランキングをチェックして挑戦しよう！",
-    images: ["https://manyo-typing.com/ogp-ranking.png"],
+    images: ["https://manyo-typing.com/ogp-image.png"],
   },
 };
 

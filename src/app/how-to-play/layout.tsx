@@ -12,7 +12,7 @@ export const metadata = {
     url: "https://manyo-typing.com/how-to-play",
     images: [
       {
-        url: "https://manyo-typing.com/ogp-how-to-play.png",
+        url: "https://manyo-typing.com/ogp-image.png",
         width: 800,
         height: 600,
         alt: "タイピングゲームの遊び方",
@@ -23,7 +23,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "タイピングゲームの遊び方",
     description: "初心者でも簡単に楽しめるタイピングゲームのルールと攻略法。",
-    images: ["https://manyo-typing.com/ogp-how-to-play.png"],
+    images: ["https://manyo-typing.com/ogp-image.png"],
   },
 };
 

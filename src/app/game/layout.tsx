@@ -10,7 +10,7 @@ export const metadata = {
     url: "https://manyo-typing.com/game",
     images: [
       {
-        url: "https://manyo-typing.com/ogp-game.png",
+        url: "https://manyo-typing.com/ogp-image.png",
         width: 800,
         height: 600,
         alt: "タイピングゲームの画面",
@@ -21,7 +21,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "和歌山の万葉集で遊ぶタイピングゲーム",
     description: "和歌山と日本の古典を学びながら楽しめるタイピングゲーム。",
-    images: ["https://manyo-typing.com/ogp-game.png"],
+    images: ["https://manyo-typing.com/ogp-image.png"],
   },
 };
 
