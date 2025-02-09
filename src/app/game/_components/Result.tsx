@@ -171,7 +171,8 @@ type Props = {
 const GameResult = ({ result }: Props) => {
   const { score, keyPressPerSecond, accuracy, totalTypeCount, typoCount } =
     result;
-  const { playerName, setPlayerName, handleSubmit, submitted } = useSubmit(result);
+  const { playerName, setPlayerName, handleSubmit, submitted } =
+    useSubmit(result);
   return (
     <div className="flex flex-col items-center w-full">
       <div className="bg-ap-transparentWhite-300 shadow-m w-[80%] shadow-xl py-20 px-48 relative">
@@ -195,8 +196,13 @@ const GameResult = ({ result }: Props) => {
             onChange={(e) => setPlayerName(e.target.value)}
             disabled={submitted}
           ></input>
-          <Button variant="primary" className="px-6" onClick={handleSubmit} disabled={submitted}>
-            { submitted ? '登録済' : 'ランキング登録' }
+          <Button
+            variant="primary"
+            className="px-6"
+            onClick={handleSubmit}
+            disabled={submitted}
+          >
+            {submitted ? "登録済" : "ランキング登録"}
           </Button>
         </div>
       </div>

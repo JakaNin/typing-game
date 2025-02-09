@@ -3,7 +3,7 @@ import Image from "next/legacy/image";
 import "./globals.css";
 import Footer from "components/layout/Footer";
 import Header from "components/layout/Header";
-import MessagePopup from 'components/commons/MessagePopup'
+import MessagePopup from "components/commons/MessagePopup";
 
 export const metadata: Metadata = {
   title: "万葉タイピング",

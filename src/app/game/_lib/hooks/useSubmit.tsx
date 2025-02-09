@@ -1,5 +1,5 @@
-import Typography from 'components/commons/Typography';
-import useMessageStore from 'stores/useMessageStore'
+import Typography from "components/commons/Typography";
+import useMessageStore from "stores/useMessageStore";
 
 type Result = {
   score: number;
@@ -10,26 +10,22 @@ type Result = {
 };
 
 import { useState } from "react";
-import Link from 'next/link';
+import Link from "next/link";
 
 const RankingLink = () => {
   return (
     <div className="flex items-center">
       <Link href="/ranking">
-        <Typography className="underline text-xl">
-          ランキング
-        </Typography>
+        <Typography className="underline text-xl">ランキング</Typography>
       </Link>
-      <Typography  className="text-xl">
-        を確認する
-      </Typography>
+      <Typography className="text-xl">を確認する</Typography>
     </div>
   );
 };
 
 export const useSubmit = (result: Result) => {
   const [playerName, setPlayerName] = useState("");
-  const addMessage = useMessageStore.use.addMessage()
+  const addMessage = useMessageStore.use.addMessage();
   const [submitted, setSubmitted] = useState(false);
 
   const body = JSON.stringify({
@@ -49,26 +45,26 @@ export const useSubmit = (result: Result) => {
       return;
     }
 
-    const response = await fetch('/api/scores', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body
+    const response = await fetch("/api/scores", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
     });
 
     if (response.ok) {
-      addMessage('success', 'スコア登録が成功しました！');
-      addMessage('info', <RankingLink />);
+      addMessage("success", "スコア登録が成功しました！");
+      addMessage("info", <RankingLink />);
       setSubmitted(true);
     } else {
       const errorData = await response.json();
-      addMessage('error', `エラー: ${errorData.message}`);
+      addMessage("error", `エラー: ${errorData.message}`);
     }
-  }
+  };
 
   return {
     playerName,
     setPlayerName,
     handleSubmit,
-    submitted
-  }
-}
+    submitted,
+  };
+};

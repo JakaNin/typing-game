@@ -1,37 +1,35 @@
-'use client'
+"use client";
 
-import { R } from 'vitest/dist/chunks/environment.LoooBwUu.js'
-import Typography from './Typography'
-import useMessageStore, { MessageType } from 'stores/useMessageStore'
+import useMessageStore, { MessageType } from "stores/useMessageStore";
 
 type SnackbarProps = {
-  children: React.ReactNode | string
-  type: MessageType
-  index: number
-}
+  children: React.ReactNode | string;
+  type: MessageType;
+  index: number;
+};
 
-const height = 90
+const height = 90;
 
 const Snackbar = ({ children, type, index }: SnackbarProps) => {
-  const clearMessage = useMessageStore.use.clearMessage()
+  const clearMessage = useMessageStore.use.clearMessage();
   const conditions = [
     {
-      type: 'success',
-      border: 'border-b-ap-green-600',
+      type: "success",
+      border: "border-b-ap-green-600",
     },
     {
-      type: 'error',
-      border: 'border-b-ap-red-600',
+      type: "error",
+      border: "border-b-ap-red-600",
     },
     {
-      type: 'warning',
-      border: 'border-b-ap-orange-600',
+      type: "warning",
+      border: "border-b-ap-orange-600",
     },
     {
-      type: 'info',
-      border: 'border-b-ap-gray-600',
+      type: "info",
+      border: "border-b-ap-gray-600",
     },
-  ]
+  ];
   return (
     <>
       <div
@@ -47,7 +45,7 @@ const Snackbar = ({ children, type, index }: SnackbarProps) => {
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Snackbar
+export default Snackbar;
