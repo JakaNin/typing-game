@@ -1,10 +1,12 @@
 export const metadata = {
   title: "プライバシーポリシー - 万葉タイピング",
-  description: "万葉タイピングのプライバシーポリシー。ユーザー情報の収集・利用について詳しく説明しています。",
+  description:
+    "万葉タイピングのプライバシーポリシー。ユーザー情報の収集・利用について詳しく説明しています。",
   keywords: ["プライバシーポリシー", "タイピングゲーム", "和歌山", "万葉集"],
   openGraph: {
     title: "プライバシーポリシー - 万葉タイピング",
-    description: "万葉タイピングのプライバシーポリシーをご確認ください。ユーザー情報の取り扱いに関する情報を掲載しています。",
+    description:
+      "万葉タイピングのプライバシーポリシーをご確認ください。ユーザー情報の取り扱いに関する情報を掲載しています。",
     url: "https://manyo-typing.com/privacy-policy",
     images: [
       {
@@ -26,4 +28,3 @@ export const metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
-

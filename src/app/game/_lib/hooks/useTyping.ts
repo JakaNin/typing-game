@@ -103,7 +103,7 @@ export const useTyping = (songs: Song[]) => {
     // タイポの場合
     audio.playErrorSound();
     setTypoCount((c) => c + 1);
-    setCorrectTypeCount(0)
+    setCorrectTypeCount(0);
     setProgress(0);
   };
 
