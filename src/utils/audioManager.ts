@@ -18,6 +18,9 @@ export class AudioManager {
       .then((arrayBuffer) => this.audioContext.decodeAudioData(arrayBuffer))
       .then((audioBuffer) => {
         this.sounds[name] = audioBuffer;
+      })
+      .catch((error) => {
+        console.error(error);
       });
   }
 

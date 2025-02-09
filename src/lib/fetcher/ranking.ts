@@ -11,9 +11,14 @@ export const getTodayRanking = async (
     method: "GET",
     headers: { "Content-Type": "application/json" },
   };
-  const response = await fetch(url, options);
-  const ranking: GameScore[] = await response.json();
-  return ranking;
+  try {
+    const response = await fetch(url, options);
+    const ranking: GameScore[] = await response.json();
+    return ranking;
+  } catch (error) {
+    console.error("Error fetching today's ranking: ", error);
+    return [];
+  }
 };
 
 export const getAllRanking = async () => {
@@ -22,7 +27,12 @@ export const getAllRanking = async () => {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   };
-  const response = await fetch(url, options);
-  const ranking: GameScore[] = await response.json();
-  return ranking;
+  try {
+    const response = await fetch(url, options);
+    const ranking: GameScore[] = await response.json();
+    return ranking;
+  } catch (error) {
+    console.error("Error fetching today's ranking: ", error);
+    return [];
+  }
 };
