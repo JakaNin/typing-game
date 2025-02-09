@@ -22,7 +22,7 @@ const Ranking = async () => {
             </button>
           </Link>
         </div>
-        <div className="w-[80%]">
+        <div className="w-[90%]">
           <RankingList ranking={ranking} />
         </div>
       </div>

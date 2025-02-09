@@ -3,7 +3,7 @@ import GameStartButton from "components/top/GameStartButton";
 
 const HowToPlay = async () => {
   return (
-    <div className="flex flex-col items-center gap-10">
+    <div className="flex flex-col items-center gap-10 py-8">
       <div className="flex flex-col items-center p-10 bg-ap-transparentWhite-300 shadow-m w-[60%] shadow-2xl gap-16 pb-24">
         <div>
           <Typography variant="title1" className="text-4xl text-ap-orange-800">

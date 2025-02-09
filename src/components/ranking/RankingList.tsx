@@ -13,7 +13,7 @@ const Ranking = async ({ ranking }: Props) => {
     <div className="w-full">
       {ranking.map((item, index) => {
         const rankNumberOne = index === 0;
-        const numberOneClass = "text-6xl font-extrabold";
+        const numberOneClass = "text-4xl font-extrabold";
         const score = item.score.toLocaleString();
         return rankNumberOne ? (
           <div key={index + 1}>

@@ -6,6 +6,7 @@ const LINKS = [
   { href: "/ranking", text: "ランキング" },
   { href: "/how-to-play", text: "遊び方" },
   { href: "/privacy-policy", text: "プライバシーポリシー" },
+  { href: "/contact", text: "お問い合わせ" },
 ];
 
 const Header = () => {
