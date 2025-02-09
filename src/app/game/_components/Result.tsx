@@ -2,7 +2,7 @@ import Link from "next/link";
 import Typography from "components/commons/Typography";
 import ReloadIcon from "components/images/ReloadIcon";
 import Button from "components/commons/Button";
-import React from "react";
+import { useSubmit } from "../_lib/hooks/useSubmit";
 
 type Result = {
   score: number;
@@ -171,6 +171,7 @@ type Props = {
 const GameResult = ({ result }: Props) => {
   const { score, keyPressPerSecond, accuracy, totalTypeCount, typoCount } =
     result;
+  const { playerName, setPlayerName, handleSubmit, submitted } = useSubmit(result);
   return (
     <div className="flex flex-col items-center w-full">
       <div className="bg-ap-transparentWhite-300 shadow-m w-[80%] shadow-xl py-20 px-48 relative">
@@ -183,17 +184,19 @@ const GameResult = ({ result }: Props) => {
           typoCount={typoCount}
         />
       </div>
-      <div className="flex flex-row pt-12 w-[70%] justify-center">
-        <div className="w-full flex flex-row justify-center gap-4">
+      <div className="flex pt-12 w-[70%] justify-center">
+        <div className="w-full flex justify-center gap-4">
           <input
             className="text-ap-black w-2/3 text-xl pl-8 py-4 tracking-wider shadow-white-blur rounded-full"
             type="text"
-            placeholder="名前を入力してください（８文字）"
+            placeholder="名前を入力してください(最大８文字)"
             maxLength={8}
+            value={playerName}
+            onChange={(e) => setPlayerName(e.target.value)}
+            disabled={submitted}
           ></input>
-          <Button variant="primary" className="px-6">
-            {" "}
-            ランキング登録
+          <Button variant="primary" className="px-6" onClick={handleSubmit} disabled={submitted}>
+            { submitted ? '登録済' : 'ランキング登録' }
           </Button>
         </div>
       </div>
