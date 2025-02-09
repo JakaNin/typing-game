@@ -26,12 +26,7 @@ const BeforeStart = ({ ranking }: Props) => {
             <RankingList ranking={ranking} />
           </div>
         </div>
-        <div className="flex flex-col gap-2 items-center">
-          <GameStartButton />
-          <Typography variant="caption">
-            ※スペースかEnterキーを押すと開始します
-          </Typography>
-        </div>
+        <GameStartButton />
       </div>
     </div>
   );

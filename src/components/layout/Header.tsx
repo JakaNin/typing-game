@@ -22,11 +22,6 @@ const Header = () => {
               <Typography variant="subtitle1">遊び方</Typography>
             </Button>
           </Link>
-          <Link href="/about">
-            <Button variant="text">
-              <Typography variant="subtitle1">会社概要</Typography>
-            </Button>
-          </Link>
         </div>
       </div>
     </header>

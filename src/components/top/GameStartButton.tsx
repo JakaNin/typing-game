@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "components/commons/Button";
+import Typography from "components/commons/Typography";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -21,11 +22,16 @@ const GameStartButton = () => {
   }, [router]);
 
   return (
-    <Link href="/game" passHref>
-      <Button className="px-20 py-5 text-3xl" variant="primary">
-        ゲーム開始
-      </Button>
-    </Link>
+    <div className="flex flex-col gap-2 items-center">
+      <Link href="/game" passHref>
+        <Button className="px-20 py-5 text-3xl" variant="primary">
+          ゲーム開始
+        </Button>
+      </Link>
+      <Typography variant="caption">
+        ※スペースかEnterキーを押すと開始します
+      </Typography>
+    </div>
   );
 };
 
