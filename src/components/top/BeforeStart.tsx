@@ -1,5 +1,5 @@
-import { GameScore } from "app/types/gameScore";
 import Typography from "components/commons/Typography";
+import { GameScore } from "types/gameScore";
 
 import RankingList from "../ranking/RankingList";
 import GameStartButton from "./GameStartButton";

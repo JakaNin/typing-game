@@ -1,6 +1,6 @@
-import type { GameScore } from "app/types/gameScore";
 import Typography from "components/commons/Typography";
 import StarIcon from "components/images/StarIcon";
+import type { GameScore } from "types/gameScore";
 
 type Props = {
   ranking: GameScore[];

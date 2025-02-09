@@ -2,8 +2,10 @@ import Button from "components/commons/Button";
 import Typography from "components/commons/Typography";
 import ReloadIcon from "components/images/ReloadIcon";
 import Link from "next/link";
+import { type GameScore } from "types/gameScore";
 
 import { useSubmit } from "../_lib/hooks/useSubmit";
+import { getRankingPosition } from "../_lib/utils/getRankingPosition";
 
 type Result = {
   score: number;
@@ -17,7 +19,7 @@ const Ranking = ({
   rank,
   demominator,
 }: {
-  rank: number;
+  rank: number | null;
   demominator: number;
 }) => {
   return (
@@ -33,12 +35,23 @@ const Ranking = ({
       </div>
       <div className="flex flex-col items-center">
         <div className="pb-4">
-          <Typography element="span" className="font-extrabold text-8xl pr-3">
-            {rank}
-          </Typography>
-          <Typography element="span" className="font-bold text-6xl">
-            位
-          </Typography>
+          {rank ? (
+            <>
+              <Typography
+                element="span"
+                className="font-extrabold text-8xl pr-3"
+              >
+                {rank}
+              </Typography>
+              <Typography element="span" className="font-bold text-6xl">
+                位
+              </Typography>
+            </>
+          ) : (
+            <Typography element="span" className="font-bold text-6xl">
+              ランク外
+            </Typography>
+          )}
         </div>
         <div className="w-[100%] flex flex-col items-center border-b border-ap-gray-500">
           <div className="pb-6">
@@ -167,17 +180,21 @@ const ResultDetail = ({
 
 type Props = {
   result: Result;
+  ranking: GameScore[];
+  demominator: number;
 };
 
-const GameResult = ({ result }: Props) => {
+const GameResult = ({ result, ranking, demominator }: Props) => {
   const { score, keyPressPerSecond, accuracy, totalTypeCount, typoCount } =
     result;
   const { playerName, setPlayerName, handleSubmit, submitted } =
     useSubmit(result);
+
+  const rank = getRankingPosition(ranking, score);
   return (
     <div className="flex flex-col items-center w-full">
       <div className="bg-ap-transparentWhite-300 shadow-m w-[80%] shadow-xl py-20 px-48 relative">
-        <Ranking rank={1} demominator={1} />
+        <Ranking rank={rank} demominator={demominator} />
         <ResultDetail
           score={score}
           keyPressPerSecond={keyPressPerSecond}
@@ -210,4 +227,5 @@ const GameResult = ({ result }: Props) => {
     </div>
   );
 };
+
 export default GameResult;
