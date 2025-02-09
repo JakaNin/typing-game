@@ -10,6 +10,7 @@ const STYLES = {
     caption: "text-sm text-ap-gray-600",
     body1: "text-4xl font-bold text-ap-black",
     body2: "text-xl font-semibold text-ap-black tracking-widest",
+    body3: "text-ap-black tracking-widest",
     number1: "text-6xl font-bold tracking-widest",
   },
 } as const;
