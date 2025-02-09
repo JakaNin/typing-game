@@ -9,7 +9,7 @@ const CountdownDisplay = ({ countdown }: Props) => {
   const count = toKanjiNumber(countdown);
   return (
     <div className="text-center">
-      <Typography variant="title1" className="animate-bounce">
+      <Typography variant="title1" className="animate-bounce text-6xl">
         {count}
       </Typography>
     </div>

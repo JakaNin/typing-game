@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import type { AudioType } from "./useAudio";
 
-const START_TIME = 2;
+const START_TIME = 60;
 export const useTimer = (audio: AudioType) => {
   const [timer, setTimer] = useState(START_TIME);
   const [totalTime, setTotalTime] = useState(timer);

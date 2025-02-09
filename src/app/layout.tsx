@@ -7,8 +7,39 @@ import type { Metadata } from "next";
 import Image from "next/legacy/image";
 
 export const metadata: Metadata = {
-  title: "万葉タイピング",
-  description: "タイピング",
+  title: "和歌山と万葉集のタイピングゲーム",
+  description:
+    "和歌山や万葉集をテーマにした、楽しく学べるタイピングゲームサイト。タイピングスキルを身につけながら日本の古典を楽しもう！",
+  keywords: [
+    "和歌山",
+    "万葉集",
+    "タイピング",
+    "タイピングゲーム",
+    "日本の古典",
+  ],
+  openGraph: {
+    title: "和歌山と万葉集のタイピングゲーム",
+    description: "和歌山の歴史と万葉集を楽しく学べるタイピングゲームサイト",
+    url: "https://manyo-typing.com",
+    siteName: "万葉タイピング",
+    images: [
+      {
+        url: "https://manyo-typing.com/ogp-image.png",
+        width: 800,
+        height: 600,
+        alt: "和歌山と万葉集のタイピングゲーム",
+      },
+    ],
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@your_twitter_handle",
+    title: "和歌山と万葉集のタイピングゲーム",
+    description: "和歌山の歴史と万葉集を楽しく学べるタイピングゲームサイト",
+    images: ["https://manyo-typing.com/ogp-image.png"],
+  },
 };
 
 export default function RootLayout({

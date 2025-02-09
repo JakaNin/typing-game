@@ -12,6 +12,17 @@ const HowToPlay = async () => {
         </div>
         <div className="flex flex-col gap-2 justify-start w-full px-8">
           <Typography variant="body2" className="text-2xl text-ap-orange-800">
+            はじめに
+          </Typography>
+          <div className="flex flex-col gap-2">
+            <Typography variant="body2">
+              ・
+              和歌山にゆかりのある万葉集を題材にたのしくタイピングをしましょう
+            </Typography>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 justify-start w-full px-8">
+          <Typography variant="body2" className="text-2xl text-ap-orange-800">
             ルール
           </Typography>
           <div className="flex flex-col gap-2">
