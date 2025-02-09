@@ -16,7 +16,7 @@ const styles = {
       disabled:bg-ap-orange-500
     `,
     text: `
-        hover:bg-ap-transparentBlack-200`,
+        hover:bg-ap-transparentBlack-100`,
   },
 };
 
