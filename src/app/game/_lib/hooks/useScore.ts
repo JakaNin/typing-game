@@ -5,9 +5,8 @@ export const useScore = (
 ) => {
   const totalTypeCount = correctTypeCount + typoCount;
   const score = Math.max(correctTypeCount * 10);
-  const accuracy = Math.round(
-    (correctTypeCount / (correctTypeCount + typoCount)) * 100,
-  );
+  const accuracy =
+    Math.round((correctTypeCount / (correctTypeCount + typoCount)) * 100) || 0;
   const keyPressPerSecond =
     Math.round((correctTypeCount / totalTime) * 10) / 10;
 

@@ -13,6 +13,7 @@ const styles = {
     primary: `
       bg-ap-orange-700 text-white font-semibold
       transition duration-300 hover:bg-ap-orange-600
+      disabled:bg-ap-orange-500
     `,
     text: `
         hover:bg-ap-transparentBlack-200`,
