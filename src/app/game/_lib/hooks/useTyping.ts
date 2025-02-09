@@ -35,6 +35,7 @@ export const useTyping = (songs: Song[]) => {
     setProgress,
     correctTypeCount,
     setCorrectTypeCount,
+    setProgressTypeCount,
     justAdded1Sec,
   } = useProgress(setTimer, setTotalTime, audio);
 
@@ -60,6 +61,7 @@ export const useTyping = (songs: Song[]) => {
   ) => {
     audio.playSuccessSound();
     setCorrectTypeCount((c) => c + 1);
+    setProgressTypeCount((c) => c + 1);
     // ユーザーのローマ字入力を更新
     setTypedRoman((c) => `${c}${latestInput}`);
     setInput(currentInputCombination);
@@ -103,7 +105,7 @@ export const useTyping = (songs: Song[]) => {
     // タイポの場合
     audio.playErrorSound();
     setTypoCount((c) => c + 1);
-    setCorrectTypeCount(0);
+    setProgressTypeCount(0);
     setProgress(0);
   };
 

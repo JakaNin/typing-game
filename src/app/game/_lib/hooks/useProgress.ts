@@ -9,6 +9,7 @@ export const useProgress = (
   audio: AudioType,
 ) => {
   const [correctTypeCount, setCorrectTypeCount] = useState(0);
+  const [progressTypeCount, setProgressTypeCount] = useState(0);
   const [progress, setProgress] = useState(0);
 
   const [justAdded1Sec, setJustAdded1Sec] = useState(false);
@@ -19,8 +20,8 @@ export const useProgress = (
     }, 2000);
   };
 
-  const typedCorrectly = correctTypeCount > 0;
-  const maxCount = correctTypeCount % 25 === 0;
+  const typedCorrectly = progressTypeCount > 0;
+  const maxCount = progressTypeCount % 25 === 0;
   const fillingCount = 4;
   const audioRef = useRef(audio);
 
@@ -35,11 +36,12 @@ export const useProgress = (
     } else {
       setProgress((p) => p + fillingCount);
     }
-  }, [correctTypeCount, maxCount, setTimer, setTotalTime, typedCorrectly]);
+  }, [progressTypeCount, maxCount, setTimer, setTotalTime, typedCorrectly]);
 
   return {
     correctTypeCount,
     setCorrectTypeCount,
+    setProgressTypeCount,
     progress,
     setProgress,
     justAdded1Sec,
