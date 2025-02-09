@@ -10,6 +10,7 @@ export const getTodayRanking = async (
   const options = {
     method: "GET",
     headers: { "Content-Type": "application/json" },
+    next: { revalidate: 10 },
   };
   try {
     const response = await fetch(url, options);
@@ -26,6 +27,7 @@ export const getAllRanking = async () => {
   const options = {
     method: "GET",
     headers: { "Content-Type": "application/json" },
+    next: { revalidate: 10 },
   };
   try {
     const response = await fetch(url, options);
