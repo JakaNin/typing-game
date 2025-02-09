@@ -1,14 +1,15 @@
 "use client";
 
-import LastSecond from "./LastSecond";
+import type { Song } from "lib/constants/songs";
+
+import { useTyping } from "../_lib/hooks/useTyping";
+import Crane from "./Crane";
 import CurrentScore from "./CurrentScore";
+import LastSecond from "./LastSecond";
 import ProgressBar from "./ProgressBar";
+import Result from "./Result";
 import SongInfo from "./SongInfo";
 import TypingSong from "./TypingSong";
-import type { Song } from "lib/constants/songs";
-import { useTyping } from "../_lib/hooks/useTyping";
-import Result from "./Result";
-import Crane from "./Crane";
 
 type Props = {
   songs: Song[];

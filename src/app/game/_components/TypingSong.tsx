@@ -1,10 +1,11 @@
-import TypingKanaPart from "./TypingKanaPart";
-import CurrentSong from "./CurrentSong";
-import TypingRoman from "./TypingRoman";
-import type { Song } from "lib/constants/songs";
-import type { SpringProps } from "../_lib/hooks/useAnimation";
 import { animated } from "@react-spring/web";
+import type { Song } from "lib/constants/songs";
 import Image from "next/image";
+
+import type { SpringProps } from "../_lib/hooks/useAnimation";
+import CurrentSong from "./CurrentSong";
+import TypingKanaPart from "./TypingKanaPart";
+import TypingRoman from "./TypingRoman";
 
 type Props = {
   song: Song;

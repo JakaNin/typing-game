@@ -9,8 +9,8 @@ type Result = {
   typoCount: number;
 };
 
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 const RankingLink = () => {
   return (

@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
-import Image from "next/legacy/image";
 import "./globals.css";
+
+import MessagePopup from "components/commons/MessagePopup";
 import Footer from "components/layout/Footer";
 import Header from "components/layout/Header";
-import MessagePopup from "components/commons/MessagePopup";
+import type { Metadata } from "next";
+import Image from "next/legacy/image";
 
 export const metadata: Metadata = {
   title: "万葉タイピング",

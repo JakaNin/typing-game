@@ -1,7 +1,7 @@
 "use client";
 
-import Countdown from "./CountDown";
 import { useCountdown } from "../_lib/hooks/useCountDown";
+import Countdown from "./CountDown";
 
 type Props = {
   children: React.ReactNode;

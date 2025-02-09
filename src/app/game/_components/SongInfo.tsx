@@ -1,5 +1,5 @@
-import { Song } from "lib/constants/songs";
 import Typography from "components/commons/Typography";
+import { Song } from "lib/constants/songs";
 
 type Props = {
   song: Song;

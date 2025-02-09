@@ -1,4 +1,4 @@
-import { checkSmallHira, checkAfterN } from "utils/typing";
+import { checkAfterN, checkSmallHira } from "utils/typing";
 
 export const fixCurrentKana = (kanaPart: string, index: number) => {
   let currentKana = kanaPart[index];

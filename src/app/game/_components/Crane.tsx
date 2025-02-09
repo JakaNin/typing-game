@@ -1,6 +1,7 @@
 import { animated } from "@react-spring/web";
-import type { AnimationProps } from "../_lib/hooks/useAnimation";
 import Image from "next/image";
+
+import type { AnimationProps } from "../_lib/hooks/useAnimation";
 
 type Props = {
   animation: AnimationProps;

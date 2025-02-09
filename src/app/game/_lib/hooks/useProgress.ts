@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
 import type { Dispatch, SetStateAction } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { type AudioType } from "./useAudio";
 
 export const useProgress = (

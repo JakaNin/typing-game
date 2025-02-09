@@ -1,7 +1,8 @@
 import type { Song } from "lib/constants/songs";
-import { toRoman } from "utils/typing";
 import { CHAR_TABLE } from "lib/constants/typingData";
 import { useState } from "react";
+import { toRoman } from "utils/typing";
+
 import { fixCurrentKana } from "../utils/fixCurrentKana";
 
 const getTypedKana = (kanaPart: string, correctKanaCount: number) => {
