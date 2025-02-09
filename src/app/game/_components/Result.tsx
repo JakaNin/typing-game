@@ -1,7 +1,6 @@
 import Button from "components/commons/Button";
 import Typography from "components/commons/Typography";
 import ReloadIcon from "components/images/ReloadIcon";
-import Link from "next/link";
 import { type GameScore } from "types/gameScore";
 
 import { useSubmit } from "../_lib/hooks/useSubmit";
@@ -74,6 +73,9 @@ const ResultDetail = ({
   totalTypeCount,
   typoCount,
 }: Result) => {
+  const handleReload = () => {
+    window.location.href = "/game";
+  };
   return (
     <>
       <div className="flex flex-row flex-wrap justify-between items-end pt-6 px-12">
@@ -165,14 +167,16 @@ const ResultDetail = ({
         </div>
       </div>
       <div className="absolute right-0 bottom-0 pr-4 pb-4">
-        <Link href="/">
-          <Button variant="text" className="flex items-center gap-1">
-            <ReloadIcon className="w-5 h-5" fill="ap-orange-700" />
-            <Typography variant="subtitle1" className="text-xl">
-              もう一度あそぶ
-            </Typography>
-          </Button>
-        </Link>
+        <Button
+          variant="text"
+          className="flex items-center gap-1"
+          onClick={handleReload}
+        >
+          <ReloadIcon className="w-5 h-5" fill="ap-orange-700" />
+          <Typography variant="subtitle1" className="text-xl">
+            もう一度あそぶ
+          </Typography>
+        </Button>
       </div>
     </>
   );
