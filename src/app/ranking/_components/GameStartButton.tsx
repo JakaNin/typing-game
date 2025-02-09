@@ -6,7 +6,7 @@ import Link from "next/link";
 const Ranking = async () => {
   return (
     <div className="self-end justify-end">
-      <Link href="/">
+      <Link href="/game">
         <Button variant="primary" className="flex items-center gap-1">
           <ReloadIcon className="w-5 h-5" fill="white" />
           <Typography variant="subtitle1" className="text-xl text-white">
