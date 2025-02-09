@@ -1,5 +1,6 @@
 import Line from "components/commons/SeparateLine";
 import Typography from "components/commons/Typography";
+import Link from "next/link";
 import React from "react";
 
 const SubTitle = ({ children }: { children: React.ReactNode }) => {
@@ -68,7 +69,7 @@ const PrivacyPolicy = async () => {
           <a
             href="https://policies.google.com/technologies/ads?hl=ja"
             target="_blank"
-            className="text-blue-600 underline"
+            className="text-ap-blue-800 underline"
             rel="noreferrer"
           >
             Google 広告に関するプライバシーポリシー
@@ -95,10 +96,20 @@ const PrivacyPolicy = async () => {
         <Line />
 
         <SubTitle>6. ユーザーの権利</SubTitle>
-        <Typography>
-          ユーザーは、収集された情報へのアクセス、訂正、削除を要求する権利があります。これに関するお問い合わせは、admin@nanimiru.jp
-          までご連絡ください。
-        </Typography>
+        <div>
+          <Typography element="span">
+            ユーザーは、収集された情報へのアクセス、訂正、削除を要求する権利があります。これに関するお問い合わせは、
+          </Typography>
+          <Link href="/contact">
+            <Typography className="text-ap-blue-800 underline" element="span">
+              お問い合わせフォーム
+            </Typography>
+          </Link>
+          <Typography element="span">
+            {" "}
+            または、admin@nanimiru.jpまでご連絡ください。
+          </Typography>
+        </div>
 
         <Line />
 
@@ -117,9 +128,20 @@ const PrivacyPolicy = async () => {
         <Line />
 
         <SubTitle>9. お問い合わせ</SubTitle>
-        <Typography>
-          プライバシーに関するご質問やリクエストは、以下の連絡先までお問い合わせください：
-        </Typography>
+        <div>
+          <Typography element="span">
+            プライバシーに関するご質問やリクエストは、
+          </Typography>
+          <Link href="/contact">
+            <Typography className="text-ap-blue-800 underline" element="span">
+              お問い合わせフォーム
+            </Typography>
+          </Link>
+          <Typography element="span">
+            {" "}
+            または、以下の連絡先までお問い合わせください：
+          </Typography>
+        </div>
         <ul className="list-disc list-inside pl-4">
           <li>メールアドレス: admin@nanimiru.jp</li>
         </ul>
