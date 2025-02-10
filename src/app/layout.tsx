@@ -3,8 +3,10 @@ import "./globals.css";
 import MessagePopup from "components/commons/MessagePopup";
 import Footer from "components/layout/Footer";
 import Header from "components/layout/Header";
+import MobileWarning from "components/layout/MobileWarning";
 import type { Metadata } from "next";
 import Image from "next/legacy/image";
+import { isDesktop } from "utils/media";
 
 export const metadata: Metadata = {
   title: "和歌山と万葉集のタイピングゲーム",
@@ -42,11 +44,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
+  const desktop = await isDesktop();
   return (
     <html className="h-full">
       <head>
@@ -66,14 +65,27 @@ export default function RootLayout({
           />
         </div>
         <div className="flex flex-col mx-auto w-full h-full min-h-screen justify-between">
-          <Header />
-          <main id="content" role="main">
-            <div>{children}</div>
-            <MessagePopup />
-          </main>
-          <Footer />
+          {desktop ? (
+            <>
+              <Header />
+              <main id="content" role="main">
+                <div>{children}</div>
+                <MessagePopup />
+              </main>
+              <Footer />
+            </>
+          ) : (
+            <>
+              <main id="content" role="main">
+                <MobileWarning />
+              </main>
+              <Footer />
+            </>
+          )}
         </div>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
