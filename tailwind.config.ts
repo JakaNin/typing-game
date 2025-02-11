@@ -48,7 +48,7 @@ const config: Config = {
             300: "#e1e1e1",
             400: "#bebebe",
             500: "#9f9f9f", // disable
-            600: "#9f9f9f", // placeholder
+            600: "#767676", // placeholder
             700: "#626262", // text
             800: "#434343", // text
             900: "#222", // text
