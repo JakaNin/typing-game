@@ -19,26 +19,34 @@ const Form = () => {
   const [result, dispatch, isPending] = useActionState(contact, initialState);
   return (
     <form className={styles.form} action={dispatch}>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-full">
         <Typography variant="subtitle1">メールアドレス(必須)</Typography>
         {result.errors && (
-          <Typography className="text-ap-red-700">
+          <Typography className="text-ap-red-700 break-words">
             {result.errors.mail}
           </Typography>
         )}
-        <input type="text" name="mail" className="rounded-xl py-2 px-4" />
+        <input
+          type="text"
+          name="mail"
+          className="rounded-xl py-2 px-4 w-full"
+        />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-full">
         <Typography variant="subtitle1">お問い合わせ内容(必須)</Typography>
         {result.errors && (
-          <Typography className="text-ap-red-700">
+          <Typography className="text-ap-red-700 break-words">
             {result.errors.content}
           </Typography>
         )}
-        <textarea name="content" rows={10} className="rounded-xl py-2 px-4" />
+        <textarea
+          name="content"
+          rows={10}
+          className="rounded-xl py-2 px-4 w-full"
+        />
       </div>
       <Button
-        className="self-end"
+        className="self-end mt-2"
         variant="primary"
         type="submit"
         disabled={isPending}
