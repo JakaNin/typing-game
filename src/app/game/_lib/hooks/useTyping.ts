@@ -5,7 +5,7 @@ import { toRoman } from "utils/typing";
 
 import { useAnimation } from "./useAnimation";
 import { useAudio } from "./useAudio";
-import { useCharacterManager } from "./useCharcterManager";
+import { useCharacterManager } from "./useCharacterManager";
 import { useKeyPressHandler } from "./useKeyPressHandler";
 import { useProgress } from "./useProgress";
 import { useQuizManager } from "./useQuizManager";
