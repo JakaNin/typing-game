@@ -25,9 +25,6 @@ const HowToPlay = async () => {
               ・
               和歌山にゆかりのある万葉集を題材にたのしくタイピングをしましょう
             </Typography>
-            <Typography variant="body2">
-              ・ゲームの特性上PC端末からのアクセスのみを想定しています
-            </Typography>
           </div>
         </div>
         <div className="flex flex-col gap-2 justify-start w-full px-8">

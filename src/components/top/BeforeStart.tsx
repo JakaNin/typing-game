@@ -10,8 +10,8 @@ type Props = {
 
 const BeforeStart = ({ ranking }: Props) => {
   return (
-    <div className="flex mx-20">
-      <div className="w-full pl-20 pr-20 pt-10 flex flex-col gap-10">
+    <div className="flex mx-4 sm:mx-20">
+      <div className="w-full px-4 sm:px-20 pt-10 flex flex-col gap-10">
         <Typography variant="title1" className="text-3xl">
           万葉集を学びながら、楽しくタイピングの練習をしましょう！
         </Typography>

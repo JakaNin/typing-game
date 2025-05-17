@@ -3,11 +3,11 @@ import "./globals.css";
 import MessagePopup from "components/commons/MessagePopup";
 import Footer from "components/layout/Footer";
 import Header from "components/layout/Header";
-import MobileWarning from "components/layout/MobileWarning";
+import MobileLayout from "components/layout/MobileLayout";
 import { SchemaOrgWebsite } from "components/SchemaOrg";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { isDesktop } from "utils/media";
+import { isMobile } from "utils/media";
 
 export const metadata: Metadata = {
   title: "和歌山と万葉集のタイピングゲーム",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const desktop = await isDesktop();
+  const mobile = await isMobile();
   return (
     <html className="h-full">
       <head>
@@ -68,30 +68,20 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
             alt="和歌山の風景をモチーフにした背景画像"
           />
         </div>
-        <div className="flex flex-col mx-auto w-full h-full min-h-screen justify-between">
+        <div className="hidden sm:flex flex-col mx-auto w-full h-full min-h-screen justify-between">
           <SchemaOrgWebsite
             url="https://manyo-typing.com"
             name="万葉タイピング"
             description="和歌山や万葉集をテーマにした、楽しく学べるタイピングゲームサイト。タイピングスキルを身につけながら日本の古典を楽しもう！"
           />
-          {desktop ? (
-            <>
-              <Header />
-              <main id="content" role="main">
-                <div>{children}</div>
-                <MessagePopup />
-              </main>
-              <Footer />
-            </>
-          ) : (
-            <>
-              <main id="content" role="main">
-                <MobileWarning />
-              </main>
-              <Footer />
-            </>
-          )}
+          <Header />
+          <main id="content" role="main">
+            <div>{children}</div>
+            <MessagePopup />
+          </main>
+          <Footer />
         </div>
+        <MobileLayout showWarning={mobile}>{children}</MobileLayout>
       </body>
     </html>
   );
