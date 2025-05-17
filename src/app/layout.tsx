@@ -55,7 +55,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       <head>
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1960233365392336"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1397258117233887"
           crossOrigin="anonymous"
         ></script>
       </head>
