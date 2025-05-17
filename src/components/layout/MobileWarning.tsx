@@ -4,8 +4,11 @@ import Typography from "components/commons/Typography";
 const MobileWarning = async () => {
   return (
     <div className="flex flex-col items-center py-8">
-      <div className="flex flex-col items-start bg-ap-transparentWhite-300 py-8 px-6 gap-6 w-[90%]">
-        <Typography variant="title1" className="text-xl text-ap-orange-800">
+      <div className="flex flex-col items-start bg-ap-transparentWhite-300 py-8 px-6 gap-6 w-[90%] rounded-2xl">
+        <Typography
+          variant="title1"
+          className="text-xl bg-gradient-to-r from-ap-orange-700 to-ap-orange-500 bg-clip-text text-transparent"
+        >
           万葉タイピング
         </Typography>
 
