@@ -2,6 +2,7 @@ import MessagePopup from "components/commons/MessagePopup";
 import Footer from "components/layout/Footer";
 import Header from "components/layout/Header";
 import { SchemaOrgWebsite } from "components/SchemaOrg";
+
 import MobileWarningModal from "./MobileWarningModal";
 
 type Props = {

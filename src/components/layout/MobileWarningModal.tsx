@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import SeparateLine from "components/commons/SeparateLine";
 import Typography from "components/commons/Typography";
+import { useState } from "react";
 
 const MobileWarningModal = () => {
   const [open, setOpen] = useState(true);
