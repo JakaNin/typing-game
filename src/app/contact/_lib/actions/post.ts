@@ -1,6 +1,5 @@
 "use server";
 
-import { supabase } from "lib/supabase";
 import { redirect } from "next/navigation";
 
 type ContactErrors = {
@@ -39,17 +38,24 @@ export const contact = async (
     return { errors };
   }
 
-  const insertItem = {
-    mail,
-    content,
+  const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.error("Slack webhook URL is not defined.");
+    return { errors: { content: "お問い合わせの送信に失敗しました。" } };
+  }
+
+  const payload = {
+    text: `\u3010Manyo Typing お問い合わせ\u3011\nメールアドレス: ${mail}\n内容:\n${content}`,
   };
 
-  const { data: _data, error } = await supabase
-    .from("contacts")
-    .insert([insertItem]);
+  const slackResponse = await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
 
-  if (error) {
-    console.error("Error inserting contact: ", error);
+  if (!slackResponse.ok) {
+    console.error("Error posting to Slack:", await slackResponse.text());
     return { errors: { content: "お問い合わせの送信に失敗しました。" } };
   }
 
