@@ -20,7 +20,7 @@ const Ranking = async ({ ranking }: Props) => {
             <div className="flex flex-row justify-between items-end gap-2 border-b pb-1 mb-12 border-ap-transparentBlack-300">
               <div className="flex flex-row items-end">
                 <div className="grow pl-4 pr-12 flex flex-row items-end gap-2">
-                  <StarIcon className="w-10 h-10" fill="ap-orange-600" />
+                  <StarIcon className="w-10 h-10" gradient />
                   <Typography variant="number1">1</Typography>
                   <Typography variant="body2" className="text-3xl">
                     位

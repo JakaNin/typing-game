@@ -26,7 +26,10 @@ const Ranking = ({
       <div className="flex flex-row  justify-start px-2 pb-10">
         <div className="text-3xl tracking-widest font-bold">
           <Typography element="span">あなたの</Typography>
-          <Typography element="span" className="text-ap-orange-800">
+          <Typography
+            element="span"
+            className="bg-gradient-to-r from-ap-orange-700 to-ap-orange-500 bg-clip-text text-transparent"
+          >
             結果
           </Typography>
           <Typography element="span">は、、、</Typography>
@@ -172,7 +175,7 @@ const ResultDetail = ({
           className="flex items-center gap-1"
           onClick={handleReload}
         >
-          <ReloadIcon className="w-5 h-5" fill="ap-orange-700" />
+          <ReloadIcon className="w-5 h-5" gradient />
           <Typography variant="subtitle1" className="text-xl">
             もう一度あそぶ
           </Typography>
@@ -197,7 +200,7 @@ const GameResult = ({ result, ranking, demominator }: Props) => {
   const rank = getRankingPosition(ranking, score);
   return (
     <div className="flex flex-col items-center w-full">
-      <div className="bg-ap-transparentWhite-300 shadow-m w-[80%] shadow-xl py-20 px-48 relative">
+      <div className="bg-ap-transparentWhite-300 shadow-m w-[80%] shadow-xl py-20 px-48 relative rounded-3xl">
         <Ranking rank={rank} demominator={demominator} />
         <ResultDetail
           score={score}

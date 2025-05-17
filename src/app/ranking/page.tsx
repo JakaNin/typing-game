@@ -16,11 +16,13 @@ const Ranking = async () => {
         ]}
       />
       <div className="flex flex-col items-center">
-        <div className="flex flex-col items-center p-10 bg-ap-transparentWhite-300 shadow-m w-[80%] shadow-2xl">
+        <div className="flex flex-col items-center p-10 bg-ap-transparentWhite-300 shadow-m w-[80%] shadow-2xl rounded-3xl">
           <GameStartButton />
           <div className="flex items-center gap-6 pb-10">
             <Link href="/ranking">
-              <button className="text-xl text-ap-orange-700 font-semibold">
+              <button
+                className="text-xl font-semibold bg-gradient-to-r from-ap-orange-700 to-ap-orange-500 bg-clip-text text-transparent"
+              >
                 全期間のランキング
               </button>
             </Link>

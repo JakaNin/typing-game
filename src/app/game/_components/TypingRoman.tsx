@@ -14,7 +14,7 @@ const TypingRoman = ({ typingChars }: Props) => {
   const divClass = " whitespace-pre-wrap break-all";
   const commonClass = "tracking-wide text-xl";
   const inputtedClass = "text-ap-gray-700";
-  const nextCharClass = "text-ap-orange-700";
+  const nextCharClass = "bg-gradient-to-r from-ap-orange-700 to-ap-orange-500 bg-clip-text text-transparent";
   const remainingClass = "text-white";
 
   const typedRoman = typingChars.typedRoman;
