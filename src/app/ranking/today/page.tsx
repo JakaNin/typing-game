@@ -18,9 +18,7 @@ const Ranking = async () => {
             </button>
           </Link>
           <Link href="/ranking/today">
-            <button
-              className="text-xl font-semibold bg-gradient-to-r from-ap-orange-700 to-ap-orange-500 bg-clip-text text-transparent"
-            >
+            <button className="text-xl font-semibold bg-gradient-to-r from-ap-orange-700 to-ap-orange-500 bg-clip-text text-transparent">
               今日のランキング
             </button>
           </Link>
