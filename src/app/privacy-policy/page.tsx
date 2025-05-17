@@ -14,15 +14,18 @@ const SubTitle = ({ children }: { children: React.ReactNode }) => {
 const PrivacyPolicy = async () => {
   return (
     <div className="flex flex-col items-center py-8">
-      <div className="flex flex-col items-start bg-ap-transparentWhite-300 py-8 px-6 gap-6 w-2/3">
-        <Typography variant="title1" className="text-4xl">
+      <div className="flex flex-col items-start bg-ap-transparentWhite-300 py-8 px-6 gap-6 w-full sm:w-2/3 mx-4 sm:mx-0">
+        <Typography
+          variant="title1"
+          className="text-3xl sm:text-4xl break-words"
+        >
           プライバシーポリシー（Privacy Policy）
         </Typography>
         <div className="flex flex-col gap-2">
           <Typography className="font-bold">
             最終更新日: [令和7年02月09日]
           </Typography>
-          <Typography>
+          <Typography className="break-words">
             このプライバシーポリシーは、[万葉タイピング]（以下、「本サービス」といいます）がユーザーからどのように情報を収集し、使用し、保護するかについて説明します。
           </Typography>
         </div>
@@ -96,8 +99,8 @@ const PrivacyPolicy = async () => {
         <Line />
 
         <SubTitle>6. ユーザーの権利</SubTitle>
-        <div>
-          <Typography element="span">
+        <div className="flex flex-wrap">
+          <Typography element="span" className="break-words">
             ユーザーは、収集された情報へのアクセス、訂正、削除を要求する権利があります。これに関するお問い合わせは、
           </Typography>
           <Link href="/contact">
@@ -105,7 +108,7 @@ const PrivacyPolicy = async () => {
               お問い合わせフォーム
             </Typography>
           </Link>
-          <Typography element="span">
+          <Typography element="span" className="break-words">
             {" "}
             または、jin.nakamura@kaze.jpまでご連絡ください。
           </Typography>
@@ -128,8 +131,8 @@ const PrivacyPolicy = async () => {
         <Line />
 
         <SubTitle>9. お問い合わせ</SubTitle>
-        <div>
-          <Typography element="span">
+        <div className="flex flex-wrap">
+          <Typography element="span" className="break-words">
             プライバシーに関するご質問やリクエストは、
           </Typography>
           <Link href="/contact">
@@ -137,7 +140,7 @@ const PrivacyPolicy = async () => {
               お問い合わせフォーム
             </Typography>
           </Link>
-          <Typography element="span">
+          <Typography element="span" className="break-words">
             {" "}
             または、以下の連絡先までお問い合わせください：
           </Typography>
