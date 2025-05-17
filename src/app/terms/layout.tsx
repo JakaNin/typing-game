@@ -1,6 +1,7 @@
 export const metadata = {
   title: "利用規約 - 万葉タイピング",
-  description: "万葉タイピングの利用規約。サービス利用時のルールをご確認ください。",
+  description:
+    "万葉タイピングの利用規約。サービス利用時のルールをご確認ください。",
   keywords: ["利用規約", "万葉タイピング", "サービスルール"],
   openGraph: {
     title: "利用規約 - 万葉タイピング",
