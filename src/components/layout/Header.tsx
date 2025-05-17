@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const LEFT_LINKS = [
   { href: "/contact", text: "お問い合わせ" },
+  { href: "/about", text: "サイトについて" },
   { href: "/privacy-policy", text: "プライバシーポリシー" },
 ];
 const LINKS = [
