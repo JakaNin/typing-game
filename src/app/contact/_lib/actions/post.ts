@@ -55,10 +55,7 @@ export const contact = async (
   });
 
   if (!slackResponse.ok) {
-    console.error(
-      "Error posting to Slack:",
-      await slackResponse.text(),
-    );
+    console.error("Error posting to Slack:", await slackResponse.text());
     return { errors: { content: "お問い合わせの送信に失敗しました。" } };
   }
 
