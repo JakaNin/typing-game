@@ -3,10 +3,9 @@ export class AudioManager {
   sounds: { [key: string]: AudioBuffer };
 
   constructor() {
-    const AudioCtx =
-      (window.AudioContext ||
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any).webkitAudioContext) as typeof AudioContext;
+    const AudioCtx = (window.AudioContext ||
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).webkitAudioContext) as typeof AudioContext;
     this.audioContext = new AudioCtx();
     this.sounds = {};
   }

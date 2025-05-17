@@ -13,7 +13,7 @@
     "format": "yarn format:prettier && yarn format:lint && tsc --noEmit",
     "test:unit:vitest": "vitest run --reporter=default",
     "test:unit:vitest:ci": "vitest run --silent --reporter=default",
-    "precommit": "yarn lint:fix && yarn format && yarn test:unit:vitest",
+    "precommit": "yarn format && yarn test:unit:vitest",
     "generate-api": "docker/bin/generate_nagarjuna_types.sh",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

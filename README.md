@@ -2,11 +2,9 @@
 
 「Manyo Typing」は和歌山ゆかりの万葉集を題材とした日本語タイピングゲームです。Next.js をフロントエンドに、Supabase をバックエンドに利用しています。
 
-
 ## 開発の始め方
 
 依存パッケージをインストールしたら、次のコマンドで開発サーバーを起動します。
-
 
 ```bash
 yarn dev
@@ -17,7 +15,6 @@ First, run the development server (it starts on port 8080):
 Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
 
 主なコマンド一覧:
 
