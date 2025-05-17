@@ -6,10 +6,10 @@ export const GET = async () => {
     const envInfo = {
       NODE_ENV: process.env.NODE_ENV,
       NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
-      NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL
-        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL.substring(0, 15)}...`
+      SUPABASE_URL: process.env.SUPABASE_URL
+        ? `${process.env.SUPABASE_URL.substring(0, 15)}...`
         : undefined,
-      NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      SUPABASE_SERVICE_KEY: process.env.SUPABASE_SERVICE_KEY
         ? "存在する（セキュリティのため非表示）"
         : undefined,
       // Node.jsのバージョン

@@ -5,19 +5,19 @@ export const GET = async () => {
   try {
     // 環境変数を直接取得して表示（マスクあり）
     const envInfo = {
-      NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL
-        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL.substring(0, 15)}...`
+      SUPABASE_URL: process.env.SUPABASE_URL
+        ? `${process.env.SUPABASE_URL.substring(0, 15)}...`
         : undefined,
-      NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      SUPABASE_SERVICE_KEY: process.env.SUPABASE_SERVICE_KEY
         ? "存在する（セキュリティのため非表示）"
         : undefined,
     };
 
     // 直接クライアントを作成
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+    const supabaseUrl = process.env.SUPABASE_URL || "";
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY || "";
 
-    if (!supabaseUrl || !supabaseAnonKey) {
+    if (!supabaseUrl || !supabaseServiceKey) {
       return NextResponse.json(
         {
           success: false,
@@ -29,7 +29,7 @@ export const GET = async () => {
     }
 
     // 新しいクライアントを作成（インポートしたsupabaseを使わない）
-    const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
+    const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
     // テーブル一覧を取得
     const { data: tables, error: tablesError } = await supabaseClient

@@ -18,10 +18,8 @@ export const GET = async () => {
           error: error.message,
           details: error,
           env: {
-            url: process.env.NEXT_PUBLIC_SUPABASE_URL ? "設定あり" : "未設定",
-            key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-              ? "設定あり"
-              : "未設定",
+            url: process.env.SUPABASE_URL ? "設定あり" : "未設定",
+            key: process.env.SUPABASE_SERVICE_KEY ? "設定あり" : "未設定",
             base_url: process.env.NEXT_PUBLIC_BASE_URL,
           },
         },
@@ -35,10 +33,8 @@ export const GET = async () => {
         message: "Supabaseに正常に接続できました",
         data,
         env: {
-          url: process.env.NEXT_PUBLIC_SUPABASE_URL ? "設定あり" : "未設定",
-          key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-            ? "設定あり"
-            : "未設定",
+          url: process.env.SUPABASE_URL ? "設定あり" : "未設定",
+          key: process.env.SUPABASE_SERVICE_KEY ? "設定あり" : "未設定",
           base_url: process.env.NEXT_PUBLIC_BASE_URL,
         },
       },
@@ -53,10 +49,8 @@ export const GET = async () => {
         error: err instanceof Error ? err.message : String(err),
         stack: err instanceof Error ? err.stack : undefined,
         env: {
-          url: process.env.NEXT_PUBLIC_SUPABASE_URL ? "設定あり" : "未設定",
-          key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-            ? "設定あり"
-            : "未設定",
+          url: process.env.SUPABASE_URL ? "設定あり" : "未設定",
+          key: process.env.SUPABASE_SERVICE_KEY ? "設定あり" : "未設定",
           base_url: process.env.NEXT_PUBLIC_BASE_URL,
         },
       },
