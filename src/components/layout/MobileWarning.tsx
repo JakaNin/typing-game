@@ -24,7 +24,7 @@ const MobileWarning = async () => {
         </div>
         <div className="pt-2">
           <Typography variant="body2" className="text-md">
-            お問い合わせについては、admin@nanimiru.jpまでお気軽にメールにてご連絡ください
+            お問い合わせについては、jin.nakamura@kaze.jpまでお気軽にメールにてご連絡ください
           </Typography>
         </div>
         <Typography variant="body2" className="text-md">

@@ -25,6 +25,7 @@ export const POST = async (req: Request) => {
     .insert([insertItem]);
 
   if (error) {
+    console.log("error: ", error);
     return NextResponse.json(
       { message: "登録に失敗しました。", error: error.message },
       { status: 500 },

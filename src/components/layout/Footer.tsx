@@ -1,7 +1,7 @@
 import Typography from "components/commons/Typography";
 
 const Footer = () => {
-  const copyRight = "2025 Ryusei Tagashira All rights reserved";
+  const copyRight = "2025 Kaze All rights reserved";
   return (
     <footer className="text-center py-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -14,10 +14,21 @@ export const getTodayRanking = async (
   };
   try {
     const response = await fetch(url, options);
-    const ranking: GameScore[] = await response.json();
-    return ranking;
+
+    const data = await response.json();
+
+    if (Array.isArray(data)) {
+      return data as GameScore[];
+    } else if (data && typeof data === "object" && "message" in data) {
+      console.error("APIエラー応答:", data);
+      // エラーオブジェクトが返された場合は空配列を返す
+      return [];
+    } else {
+      console.error("不明なAPI応答形式:", data);
+      return [];
+    }
   } catch (error) {
-    console.error("Error fetching today's ranking: ", error);
+    console.error("ランキング取得エラー:", error);
     return [];
   }
 };

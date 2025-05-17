@@ -28,10 +28,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@jakanin_zenji",
     title: "お問い合わせ - 万葉タイピング",
     description:
       "万葉タイピングに関するご質問やご意見は、こちらからお気軽にお問い合わせください。",
     images: ["https://manyo-typing.com/ogp-image.png"],
+  },
+  alternates: {
+    canonical: "https://manyo-typing.com/contact",
   },
 };
 export default function Layout({ children }: { children: React.ReactNode }) {

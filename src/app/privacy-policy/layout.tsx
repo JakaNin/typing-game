@@ -19,9 +19,13 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@jakanin_zenji",
     title: "プライバシーポリシー - 万葉タイピング",
     description: "ユーザー情報の取り扱い方針についてご確認いただけます。",
     images: ["https://manyo-typing.com/ogp-image.png"],
+  },
+  alternates: {
+    canonical: "https://manyo-typing.com/privacy-policy",
   },
 };
 

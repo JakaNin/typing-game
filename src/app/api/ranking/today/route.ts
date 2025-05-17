@@ -32,9 +32,14 @@ export const GET = async (req: Request) => {
       .limit(limit);
 
     if (error) {
-      console.error("ランキング取得エラー:", error.message);
+      console.error("ランキング取得エラー:", error);
+      console.error("エラー詳細:", JSON.stringify(error, null, 2));
       return NextResponse.json(
-        { message: "ランキングの取得に失敗しました。", error: error.message },
+        {
+          message: "ランキングの取得に失敗しました。",
+          error: error.message,
+          details: error,
+        },
         { status: 500 },
       );
     }
@@ -42,8 +47,17 @@ export const GET = async (req: Request) => {
     return NextResponse.json(data, { status: 200 });
   } catch (err) {
     console.error("サーバーエラー:", err);
+    console.error("エラータイプ:", typeof err);
+    console.error(
+      "エラースタック:",
+      err instanceof Error ? err.stack : "スタックなし",
+    );
     return NextResponse.json(
-      { message: "サーバーエラーが発生しました。" },
+      {
+        message: "サーバーエラーが発生しました。",
+        error: err instanceof Error ? err.message : String(err),
+        stack: err instanceof Error ? err.stack : undefined,
+      },
       { status: 500 },
     );
   }

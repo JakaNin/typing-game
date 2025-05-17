@@ -107,7 +107,7 @@ const PrivacyPolicy = async () => {
           </Link>
           <Typography element="span">
             {" "}
-            または、admin@nanimiru.jpまでご連絡ください。
+            または、jin.nakamura@kaze.jpまでご連絡ください。
           </Typography>
         </div>
 
@@ -143,7 +143,7 @@ const PrivacyPolicy = async () => {
           </Typography>
         </div>
         <ul className="list-disc list-inside pl-4">
-          <li>メールアドレス: admin@nanimiru.jp</li>
+          <li>メールアドレス: jin.nakamura@kaze.jp</li>
         </ul>
       </div>
     </div>

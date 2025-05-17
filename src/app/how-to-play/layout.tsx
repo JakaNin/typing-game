@@ -21,9 +21,13 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@jakanin_zenji",
     title: "タイピングゲームの遊び方",
     description: "初心者でも簡単に楽しめるタイピングゲームのルールと攻略法。",
     images: ["https://manyo-typing.com/ogp-image.png"],
+  },
+  alternates: {
+    canonical: "https://manyo-typing.com/how-to-play",
   },
 };
 
