@@ -10,12 +10,6 @@
 yarn dev
 ```
 
-First, run the development server (it starts on port 8080):
-
-Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
 主なコマンド一覧:
 
 - `yarn build` – 本番ビルド
