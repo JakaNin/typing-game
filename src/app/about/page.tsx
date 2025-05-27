@@ -29,7 +29,7 @@ const About = async () => {
           </Typography>
         </div>
         <Line />
-        <Typography>運営者連絡先: jin.nakamura@kaze.jp</Typography>
+        <Typography>運営者連絡先: hoge.example@vitalize.co.jp</Typography>
       </div>
     </div>
   );

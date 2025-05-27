@@ -1,6 +1,6 @@
 import Typography from "components/commons/Typography";
 
-const COMPANY_URL = "https://kaze.jp";
+const COMPANY_URL = "https://vitalize.co.jp";
 
 const Footer = () => {
   const copyRightYear = "2025";
@@ -15,7 +15,7 @@ const Footer = () => {
             rel="noreferrer"
             className="underline"
           >
-            Kaze
+            Vitalize.inc
           </a>{" "}
           All rights reserved
         </Typography>

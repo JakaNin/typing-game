@@ -55,7 +55,7 @@ const Terms = async () => {
           <a href="/contact" className="text-ap-blue-800 underline">
             お問い合わせフォーム
           </a>
-          または jin.nakamura@kaze.jp までお願いいたします。
+          または hoge.example@vitalize.co.jp までお願いいたします。
         </Typography>
       </div>
     </div>

@@ -110,7 +110,7 @@ const PrivacyPolicy = async () => {
           </Link>
           <Typography element="span" className="break-words">
             {" "}
-            または、jin.nakamura@kaze.jpまでご連絡ください。
+            または、hoge.example@vitalize.co.jpまでご連絡ください。
           </Typography>
         </div>
 
@@ -146,7 +146,7 @@ const PrivacyPolicy = async () => {
           </Typography>
         </div>
         <ul className="list-disc list-inside pl-4">
-          <li>メールアドレス: jin.nakamura@kaze.jp</li>
+          <li>メールアドレス: hoge.example@vitalize.co.jp</li>
         </ul>
       </div>
     </div>
